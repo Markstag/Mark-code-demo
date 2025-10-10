@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.3f;
     public LayerMask groundLayer;
 
+    public LayerMask DangerLayer;
+
     private CharacterController controller;
 
     private Vector2 moveInput = Vector2.zero;
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start ()
     {
-        activeScene = SceneManager.GetActiveScene();
+     
     }
 
     void Update()
@@ -37,9 +39,12 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; 
+            velocity.y = -2f;
         }
-
+        if( Physics.CheckSphere(groundCheck.position, groundCheckRadius, DangerLayer))
+        {
+            OnDeath();
+        }
         Vector3 move = transform.forward * moveInput.y + transform.right * moveInput.x;
         controller.Move(move * moveSpeed * Time.deltaTime);
 
@@ -66,14 +71,16 @@ public class PlayerController : MonoBehaviour
     public void OnJump()
     {
         jumpPressed = true;
-        Debug.Log("test");
+       
     }
 
     public void OnDeath()
     {
-        if ( )
-        {
-            SceneManager.LoadScene(activeScene)
-        }
+        
+        
+         Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
+            Debug.Log("DIE");
+        
     }
 }
