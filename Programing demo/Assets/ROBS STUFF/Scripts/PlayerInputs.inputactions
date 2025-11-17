@@ -1,5 +1,4 @@
 {
-    "version": 1,
     "name": "PlayerInputs",
     "maps": [
         {
@@ -37,6 +36,15 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "9cd2ec9f-42c4-4da1-b219-1b5d73eaedc5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "628d5b59-76fc-472c-a39b-8cb5a5858b11",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -129,6 +137,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "063e7d3e-e42d-411f-8e00-cd34be94c38c",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
