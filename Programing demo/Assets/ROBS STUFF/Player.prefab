@@ -81,6 +81,7 @@ MonoBehaviour:
   characterController: {fileID: 6598696957891140801}
   mainCamera: {fileID: 7667891363763977719}
   playerInputHandler: {fileID: 0}
+  interactdistance: 2
 --- !u!1 &5047043752693203387
 GameObject:
   m_ObjectHideFlags: 0

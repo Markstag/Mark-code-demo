@@ -22,6 +22,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private CinemachineCamera mainCamera; //you need to change this to CinemachineCamera
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private float interactdistance; 
+    [SerializeField] private float attackdistance;
     private Vector3 currentMovement;
     private float verticalRotation;
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
@@ -39,12 +40,27 @@ public class FirstPersonController : MonoBehaviour
 
         if (playerInputHandler. InteractTriggered)
         {
+             Debug.Log("hit");
             RaycastHit hit;
             if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, interactdistance))
             {
                 if (hit.collider.CompareTag("Key"))
                 {
                     hit.collider.gameObject.GetComponent<Key>().OpenDoor();
+                }
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("hit");
+            RaycastHit hit;
+            if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, attackdistance))
+            {
+                Debug.Log("hit");
+                if (hit.collider.CompareTag("Ground"))
+                {
+                    hit.collider.gameObject.GetComponent<Dies>().Destroy();
                 }
             }
         }
